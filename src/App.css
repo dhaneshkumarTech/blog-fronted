@@ -1,27 +1,134 @@
+/* Header */
 .header {
     display: flex;
-    padding: 30px;
-    justify-content: space-around;
-    background-color: antiquewhite;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #f0ead6; /* A lighter shade of antiquewhite */
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.title{
-    padding: 5px;
+/* Title */
+.title {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: 700;
 }
+
+/* Header buttons container */
 .header-btn {
-    padding: 30px;
+    display: flex;
+    align-items: center;
 }
 
+/* Button common styles */
+.register-btn,
+.login-btn {
+    padding: 10px 20px;
+    margin-right: 10px;
+    height: auto;
+    width: auto;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+/* Register button specific styles */
+.register-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.register-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Login button specific styles */
+.login-btn {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+}
+
+.login-btn:hover {
+    background-color: #bbb;
+}
+
+/* Main container */
 .register {
-    padding: 5px;
-    margin-right: 10px;
-    height: 30px;
-    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
-.login {
-    padding: 5px;
-    margin-right: 10px;
-    height: 30px;
-    width: 100px;
+/* Form container */
+.register-form {
+    background: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+/* Form input groups */
+.name,
+.username,
+.email,
+.password,
+.confirm-password {
+    margin-bottom: 1em;
+}
+
+/* Labels */
+.name label,
+.username label,
+.email label,
+.password label,
+.confirm-password label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+/* Input fields */
+.name input,
+.username input,
+.email input,
+.password input,
+.confirm-password input {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+/* Input focus */
+.name input:focus,
+.username input:focus,
+.email input:focus,
+.password input:focus,
+.confirm-password input:focus {
+    border: 1px solid #007bff;
+}
+
+/* Submit Button */
+input[type="Submit"] {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.6em 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Submit Button on Hover */
+input[type="Submit"]:hover {
+    background: #0056b3;
 }
