@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
-    background-color: #f0ead6; /* A lighter shade of antiquewhite */
+    background-color: #f0ead6;
+    /* A lighter shade of antiquewhite */
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -15,120 +16,254 @@
     font-weight: 700;
 }
 
-/* Header buttons container */
-.header-btn {
+/* Container for the entire registration form */
+.register {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Style for the form inside the container */
+.register-form {
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
-/* Button common styles */
-.register-btn,
-.login-btn {
-    padding: 10px 20px;
-    margin-right: 10px;
-    height: auto;
-    width: auto;
+/* Generic styles for each form field */
+.username,
+.password {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: 600;
 }
 
-/* Register button specific styles */
-.register-btn {
+/* Style for the Submit button */
+button {
     background-color: #007bff;
     color: white;
+    padding: 12px 20px;
     border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.register-btn:hover {
+button:hover {
     background-color: #0056b3;
 }
 
-/* Login button specific styles */
-.login-btn {
-    background-color: #ccc;
-    color: #333;
-    border: none;
+/* Style for the Register link */
+.register-btn {
+    text-decoration: none;
+    color: #007bff;
 }
 
-.login-btn:hover {
-    background-color: #bbb;
+.register-btn:hover {
+    text-decoration: underline;
 }
 
-/* Main container */
+/* Container for the entire registration form */
 .register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
-
-/* Form container */
-.register-form {
-    background: #fff;
-    padding: 2em;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 400px;
 }
 
-/* Form input groups */
+/* Style for the form inside the container */
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Generic styles for each form field */
 .name,
 .username,
 .email,
 .password,
 .confirm-password {
-    margin-bottom: 1em;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Labels */
-.name label,
-.username label,
-.email label,
-.password label,
-.confirm-password label {
-    display: block;
+label {
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin-bottom: 8px;
 }
 
-/* Input fields */
-.name input,
-.username input,
-.email input,
-.password input,
-.confirm-password input {
-    width: 100%;
-    padding: 0.5em;
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    outline: none;
-    transition: border 0.3s ease;
 }
 
-/* Input focus */
-.name input:focus,
-.username input:focus,
-.email input:focus,
-.password input:focus,
-.confirm-password input:focus {
-    border: 1px solid #007bff;
-}
-
-/* Submit Button */
-input[type="Submit"] {
-    background: #007bff;
-    color: #fff;
+/* Style for the Submit button */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
     border: none;
     border-radius: 4px;
-    padding: 0.6em 1em;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
-/* Submit Button on Hover */
-input[type="Submit"]:hover {
-    background: #0056b3;
+button:hover {
+    background-color: #0056b3;
 }
+
+/* Style for the Register and Login links */
+.register-btn,
+.login-btn {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.register-btn:hover,
+.login-btn:hover {
+    text-decoration: underline;
+}
+
+
+/* Styles for the Dashboard header */
+.adminheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+.adminName {
+    margin: 0;
+}
+
+.logout-btn {
+    background-color: #ff6666;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #cc0000;
+}
+
+/* Styles for the Dashboard body */
+.body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Button container */
+.view-requests {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+/* Individual buttons */
+.creater-requests,
+.consumers,
+.creaters {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.creater-requests:hover,
+.consumers:hover,
+.creaters:hover {
+    background-color: #0056b3;
+}
+/* ... Existing styles ... */
+
+/* User data list */
+.user-data ul {
+    list-style: none;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .user-data li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .user-data li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Individual accept and reject buttons */
+  .accept-btn,
+  .reject-btn {
+    padding: 5px 15px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .accept-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .reject-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  /* Bulk action buttons at the bottom */
+  .bulk-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+  
+  .accept-all-btn,
+  .reject-all-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .accept-all-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .reject-all-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
