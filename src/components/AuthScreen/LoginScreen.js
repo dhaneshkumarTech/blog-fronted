@@ -28,22 +28,24 @@ function Login() {
         axios.post('http://localhost:4000/users/login', loginData)
             .then((response) => {
                 localStorage.setItem("token", response.data.token)
-                console.log(response.data.role)
-                if (response.data.role === "admin") {
-                    navigate('/admindashboard', {
-                        state: { data: response.data.name }
-                    });
+                const user = response.data.user
+                if (user.role === "admin") {
+                    navigate('/quickblog/admindashboard',
+                        {
+                            state: { name: user.name }
+                        }
+                    );
                 }
-                if (response.data.role === "creater")
+                if (user.role === "creater")
                     navigate('/dashborad')
-                if (response.data.role === "consumer") {
-                    navigate('/dashborad')
+                if (user.role === "consumer") {
+                    navigate('/admindashborad')
                 }
 
             })
             .catch((err) => {
 
-                console.log("this is error", err)
+                console.log(err)
             })
     }
 
