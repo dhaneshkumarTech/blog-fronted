@@ -2,20 +2,24 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import Home from './components/HomeScreen';
 import Register from './components/AuthScreen/RegisterScreen';
 import Login from './components/AuthScreen/LoginScreen';
-import Dashborad from './components/dashboard';
+
+import ProtectedRoute from './components/ProtectedRoute';
 import AdminDashboard from './components/AdminScreen/AdminDashboard'
 
+
 function App() {
-  return (  
+  return (
     <BrowserRouter>
       <Routes>
-        <Route path='/quickblog/dashboard' element={<Dashborad />}></Route>
-        <Route path='/quickblog/register' element={<Register ister />}></Route>
-        <Route path='/quickblog/login' element={<Login />}></Route>
-        <Route path='/quickblog/admindashboard' element={<AdminDashboard />}></Route>
- 
+        <Route path='/'>
+          <Route path='' element={<Home />}></Route>
+          <Route path='register' element={<Register />}></Route>
+          <Route path='login' element={<Login />}></Route>
+          <Route path='admindashboard' element={<ProtectedRoute Component={AdminDashboard} />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter >
   );

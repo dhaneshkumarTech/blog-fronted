@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios'
-import { Link, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import Header from "../Header";
 
 function Register() {
     const navigate = useNavigate()
@@ -35,12 +35,10 @@ function Register() {
     }
 
     return (
-        <div> <div className="header">
-            <h2 className="title">Quick Blog</h2>
+        <div>
             <div>
-                <Link to="/login" className="login-btn" >Login</Link>
+                <Header />
             </div>
-        </div>
             <div className="register">
 
                 <form className="register-form" onSubmit={handleRegister}>

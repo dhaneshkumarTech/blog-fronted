@@ -1,95 +1,84 @@
 /* Header */
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 30px;
-    background-color: #f0ead6;
-    /* A lighter shade of antiquewhite */
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: #f0ead6;
+  /* A lighter shade of antiquewhite */
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
-
-/* Title */
+.body{
+  width: 90%;
+  margin: auto;
+}
 .title {
-    font-size: 1.5em;
-    color: #333;
-    font-weight: 700;
+  font-size: 1.5em;
+  color: #333;
+  font-weight: 700;
+  cursor: pointer;;
 }
 
-/* Container for the entire registration form */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
 .register {
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-/* Style for the form inside the container */
 .register-form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Generic styles for each form field */
 .username,
 .password {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-    font-weight: bold;
-    margin-bottom: 8px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 input[type="text"],
 input[type="password"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* Style for the Submit button */
-button {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Style for the Register link */
-.register-btn {
-    text-decoration: none;
-    color: #007bff;
-}
-
-.register-btn:hover {
-    text-decoration: underline;
-}
-
-/* Container for the entire registration form */
 .register {
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 /* Style for the form inside the container */
 .register-form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Generic styles for each form field */
@@ -98,204 +87,198 @@ button:hover {
 .email,
 .password,
 .confirm-password {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-    font-weight: bold;
-    margin-bottom: 8px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* Style for the Submit button */
 button {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.login-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: red;
 }
 
-/* Style for the Register and Login links */
-.register-btn,
-.login-btn {
-    text-decoration: none;
-    color: #007bff;
+.header-btn {
+  padding: 10px;
 }
 
-.register-btn:hover,
-.login-btn:hover {
-    text-decoration: underline;
-}
 
 
 /* Styles for the Dashboard header */
 .adminheader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
 }
 
-/* ... Existing styles ... */
+.adminName {
+  font-size: 24px;
+  margin: 0;
+}
 
-.adminheader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .adminName {
-    font-size: 24px;
-    margin: 0;
-  }
-  
-  .logout-btn {
-    padding: 8px 16px;
-    cursor: pointer;
-  }
-  
-  .view-requests button {
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    border: none;
-    background-color: yellowgreen;
-    color: black;
-    
-  }
-  
-  /* Highlight the selected button */
-  .view-requests button.selected {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  /* List header */
-  .user-data h3 {
-    margin: 0;
-    padding: 10px;
-    background-color: #f2f2f2;
-    border-bottom: 1px solid #ccc;
-  }
+.logout-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+}
 
-  
+.view-requests button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  background-color: yellowgreen;
+  color: black;
+
+}
+
+/* Highlight the selected button */
+.view-requests button.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+/* List header */
+.user-data h3 {
+  margin: 0;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ccc;
+}
+
+
 .logout-btn:hover {
-    background-color: #cc0000;
+  background-color: #cc0000;
 }
 
 /* Styles for the Dashboard body */
 .body {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
 /* Button container */
 .view-requests {
-    display: flex;
-    margin-bottom: 20px;
+  display: flex;
+  margin-bottom: 20px;
 }
 
 /* Individual buttons */
 .creater-requests,
 .consumers,
 .creaters {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .creater-requests:hover,
 .consumers:hover,
 .creaters:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
+
 /* ... Existing styles ... */
 
 /* User data list */
 .user-data ul {
-    list-style: none;
-    padding: 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .user-data li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .user-data li:last-child {
-    border-bottom: none;
-  }
-  
-  /* Individual accept and reject buttons */
-  .accept-btn,
-  .reject-btn {
-    padding: 5px 15px;
-    margin: 0 5px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .accept-btn {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .reject-btn {
-    background-color: #dc3545;
-    color: white;
-  }
-  
-  /* Bulk action buttons at the bottom */
-  .bulk-actions {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-  }
-  
-  .accept-all-btn,
-  .reject-all-btn {
-    padding: 10px 20px;
-    margin: 0 5px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .accept-all-btn {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .reject-all-btn {
-    background-color: #dc3545;
-    color: white;
-  }
-  
+  list-style: none;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.user-data li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.user-data li:last-child {
+  border-bottom: none;
+}
+
+/* Individual accept and reject buttons */
+.accept-btn,
+.reject-btn {
+  padding: 5px 15px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.accept-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.reject-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Bulk action buttons at the bottom */
+.bulk-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.accept-all-btn,
+.reject-all-btn {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.accept-all-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.reject-all-btn {
+  background-color: #dc3545;
+  color: white;
+}

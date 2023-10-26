@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -15,14 +15,6 @@ function AdminDashboard() {
     const [consumerData, setConsumerData] = useState([{}]);
     const [createrRequest, setCreaterRequest] = useState([{}]);
     const [createrData, setCreaterData] = useState([{}]);
-
-    // useEffect(async () => {
-    //     const token = await localStorage.getItem("token")
-    //     if (!token) {
-    //         navigate('/quickblog/login')    
-    //     }
-    // }, [])
-
 
 
     function logout() {

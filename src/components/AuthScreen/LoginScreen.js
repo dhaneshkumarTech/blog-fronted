@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Header from "../Header";
 
 
 
@@ -30,32 +31,24 @@ function Login() {
                 localStorage.setItem("token", response.data.token)
                 const user = response.data.user
                 if (user.role === "admin") {
-                    navigate('/quickblog/admindashboard',
+                    navigate('/admindashboard',
                         {
                             state: { name: user.name }
                         }
                     );
                 }
-                if (user.role === "creater")
-                    navigate('/dashborad')
-                if (user.role === "consumer") {
-                    navigate('/admindashborad')
-                }
-
+                if (user.role === "creater") { }
+                if (user.role === "consumer") { }
             })
             .catch((err) => {
 
                 console.log(err)
             })
     }
-
     return (
         <div>
-            <div className="header">
-                <h2 className="title">Quick Blog</h2>
-                <div>
-                    <Link to="/register" className="register-btn" >Register</Link>
-                </div>
+            <div>
+                <Header />
             </div>
             <div className="register">
                 <form className="register-form" onSubmit={handleLogin}>
