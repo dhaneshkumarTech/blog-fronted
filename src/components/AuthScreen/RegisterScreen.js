@@ -28,10 +28,9 @@ function Register() {
             .then(() => {
                 navigate('/login')
             })
-            .catch((err) => {
-                console.log("this is error", err)
+            .catch((error) => {
+                throw error(error)
             })
-
     }
 
     return (

@@ -6,7 +6,6 @@ import Header from "../Header";
 
 
 function Login() {
-
     const navigate = useNavigate()
     const [loginData, setLoginData] = useState(
         {
@@ -28,21 +27,17 @@ function Login() {
         e.preventDefault();
         axios.post('http://localhost:4000/users/login', loginData)
             .then((response) => {
-                localStorage.setItem("token", response.data.token)
                 const user = response.data.user
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("user", JSON.stringify(user))
                 if (user.role === "admin") {
-                    navigate('/admindashboard',
-                        {
-                            state: { name: user.name }
-                        }
-                    );
+                    navigate('/admindashboard')
                 }
                 if (user.role === "creater") { }
                 if (user.role === "consumer") { }
             })
-            .catch((err) => {
-
-                console.log(err)
+            .catch((error) => {
+                throw error(error)
             })
     }
     return (

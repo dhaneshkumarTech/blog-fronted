@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function AdminDashboard() {
-    const location = useLocation();
     const navigate = useNavigate()
-
-    const adminName = location.state?.name;
 
     const [showCreaterRequest, setShowCreaterRequest] = useState(false)
     const [showConsumer, setShowConsumers] = useState(false)
@@ -16,15 +13,20 @@ function AdminDashboard() {
     const [createrRequest, setCreaterRequest] = useState([{}]);
     const [createrData, setCreaterData] = useState([{}]);
 
+    const user = JSON.parse(localStorage.getItem("user"))
 
     function logout() {
-        localStorage.removeItem("token")
+        localStorage.clear()
         navigate('/login')
     }
-    function handleRequest() {
+
+
+    function handleRequest(e) {
         setShowCreaterRequest(true)
         setShowConsumers(false)
         setShowCreater(false)
+        e.preventDefault();
+
         axios.get(
             'http://localhost:4000/admin/creater-requests',
             {
@@ -37,15 +39,16 @@ function AdminDashboard() {
                 setCreaterRequest(response.data)
             })
             .catch((error) => {
-                console.log("This is error", error)
+                throw error(error)
             })
 
     }
 
-    function handleCreater() {
+    function handleCreater(e) {
         setShowCreaterRequest(false)
         setShowConsumers(false)
         setShowCreater(true)
+        e.preventDefault();
         axios.get(
             'http://localhost:4000/admin/creaters',
             {
@@ -58,13 +61,15 @@ function AdminDashboard() {
                 setCreaterData(response.data)
             })
             .catch((error) => {
-                console.log("This is error", error)
+                throw error(error)
             })
     }
-    function handleConsumer() {
+    function handleConsumer(e) {
         setShowCreaterRequest(false)
         setShowConsumers(true)
         setShowCreater(false)
+        e.preventDefault();
+
         axios.get(
             'http://localhost:4000/admin/consumers',
             {
@@ -78,14 +83,53 @@ function AdminDashboard() {
 
             })
             .catch((error) => {
-                console.log(error)
+                throw error(error)
+            })
+    }
+
+    function updateCreaterStataus(id, status) {
+        axios.patch('http://localhost:4000/admin//update-creater-status',
+            {
+                userId: id,
+                requestStatus: status
+            },
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+
+            }
+        )
+            .then((response) => {
+                setCreaterRequest(response.data.users)
+            })
+            .catch((error) => {
+                throw error(error)
+            })
+    }
+
+
+    function updateAllCreaterStataus(status) {
+        axios.patch('http://localhost:4000/admin//update-all-creaters-status', { requestStatus: status },
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+
+            }
+        )
+            .then((response) => {
+                setCreaterRequest(response.data.users)
+            })
+            .catch((error) => {
+                throw error(error)
             })
     }
 
     return (
         <div>
             <div className="adminheader">
-                <h2 className="adminName">{adminName}</h2>
+                <h2 className="adminName">{user && user.name}</h2>
                 <button className="logout-btn" onClick={logout}>Logout</button>
             </div>
             <div className="body">
@@ -95,7 +139,7 @@ function AdminDashboard() {
                     <button className={`creaters ${showCreater ? "selected" : ""}`} onClick={handleCreater}>View Creaters</button>
                 </div>
                 <div className="user-data">
-                    {showCreaterRequest && (
+                    {showCreaterRequest && createrRequest[0] && (
                         <>
                             <h3>Creater Requests</h3>
                             <ul>
@@ -103,18 +147,21 @@ function AdminDashboard() {
                                     <li key={index}>
                                         <span>{request.name}</span>
                                         <div>
-                                            <button className="accept-btn">Accept</button>
-                                            <button className="reject-btn">Reject</button>
+                                            <button className="accept-btn" onClick={() => updateCreaterStataus(request._id, "Accepted")}>Accept</button>
+                                            <button className="reject-btn" onClick={() => updateCreaterStataus(request._id, "Rejected")}>Reject</button>
                                         </div>
                                     </li>
                                 ))}
                                 <div className="bulk-actions">
-                                    <button className="accept-all-btn">Accept All</button>
-                                    <button className="reject-all-btn">Reject All</button>
+                                    <button className="accept-all-btn" onClick={() => updateAllCreaterStataus("Accepted")}>Accept All</button>
+                                    <button className="reject-all-btn" onClick={() => updateAllCreaterStataus("Rejected")}>Reject All</button>
                                 </div>
                             </ul>
+
                         </>
                     )}
+                    {showCreaterRequest && !createrRequest[0] && <h5>No request is Pending</h5>}
+
                     {showConsumer && (
                         <>
                             <h3>Consumers</h3>
@@ -150,7 +197,7 @@ function AdminDashboard() {
                     )}
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

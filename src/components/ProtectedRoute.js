@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 
 const ProtectedRoute = (props) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(true)
 
     const { Component } = props
     const navigate = useNavigate()
@@ -11,12 +10,11 @@ const ProtectedRoute = (props) => {
         if (!token) {
             navigate('/login')
         }
-        setIsLoggedIn(true)
     }, [navigate])
 
     return (
         <div>
-            {isLoggedIn && <is Component />}
+            < Component />
         </div>
     )
 }
