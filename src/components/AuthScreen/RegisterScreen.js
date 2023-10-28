@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
+
 import Header from "../Header";
+
 
 function Register() {
     const navigate = useNavigate()
+
     const [registerData, setRegisterData] = useState({
         name: "",
         username: "",
@@ -12,7 +15,7 @@ function Register() {
         password: ""
     })
 
-    const handleChange = e => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setRegisterData(prevState => ({
             ...prevState,
@@ -20,10 +23,8 @@ function Register() {
         }));
     };
 
-
-    const handleRegister = (e) => {
+    const Register = (e) => {
         e.preventDefault();
-
         axios.post('http://localhost:4000/users/register', registerData)
             .then(() => {
                 navigate('/login')
@@ -34,13 +35,11 @@ function Register() {
     }
 
     return (
-        <div>
-            <div>
-                <Header />
-            </div>
+        <>
+            <Header />
             <div className="register">
 
-                <form className="register-form" onSubmit={handleRegister}>
+                <form className="register-form" onSubmit={Register}>
                     <div className="name">
                         <label>Name</label>
                         <input type="text" name="name" required value={registerData.name} onChange={handleChange} placeholder="Enter name" />
@@ -62,10 +61,9 @@ function Register() {
                         <input type="password" name="confirm-password" required />
                     </div>
                     <button type="Submit">Register</button>
-
                 </form>
             </div>
-        </div>
+        </>
     )
 }
 
