@@ -5,8 +5,9 @@ import Header from "../Header";
 
 
 
-function Login() {
+function LoginScreen() {
     const navigate = useNavigate()
+
     const [loginData, setLoginData] = useState(
         {
             email: "",
@@ -22,9 +23,9 @@ function Login() {
         }));
     };
 
-
-    const handleLogin = (e) => {
+    const Login = (e) => {
         e.preventDefault();
+
         axios.post('http://localhost:4000/users/login', loginData)
             .then((response) => {
                 const user = response.data.user
@@ -33,20 +34,22 @@ function Login() {
                 if (user.role === "admin") {
                     navigate('/admindashboard')
                 }
-                if (user.role === "creater") { }
+                if (user.role === "creater") {
+                    // navigate('/createrdashboard')
+                }
                 if (user.role === "consumer") { }
+                //  navigate('/consumerdashboard')
             })
             .catch((error) => {
                 throw error(error)
             })
     }
+
     return (
-        <div>
-            <div>
-                <Header />
-            </div>
+        <>
+            <Header />
             <div className="register">
-                <form className="register-form" onSubmit={handleLogin}>
+                <form className="register-form" onSubmit={Login}>
                     <div className="email">
                         <label>Email</label>
                         <input type="email" name="email" placeholder="Enter email" onChange={handleChange} required />
@@ -56,11 +59,10 @@ function Login() {
                         <input type="password" name="password" onChange={handleChange} required />
                     </div>
                     <button type="Submit" >Login</button>
-
                 </form>
             </div>
-        </div>
+        </>
     )
 }
 
-export default Login
+export default LoginScreen
