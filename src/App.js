@@ -6,7 +6,7 @@ import Home from './components/HomeScreen';
 import Register from './components/AuthScreen/RegisterScreen';
 import Login from './components/AuthScreen/LoginScreen';
 
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './components/ProectedRoute/ProtectedRoute';
 import AdminDashboard from './components/AdminScreen/AdminDashboard'
 
 
@@ -18,7 +18,8 @@ function App() {
           <Route path='' element={<Home />}></Route>
           <Route path='register' element={<Register />}></Route>
           <Route path='login' element={<Login />}></Route>
-          <Route path='admindashboard' element={<ProtectedRoute Component={AdminDashboard} />}></Route>
+          <Route path='admindashboard' element={<ProtectedRoute Component={AdminDashboard} />}>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter >
