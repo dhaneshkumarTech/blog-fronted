@@ -1,8 +1,9 @@
 import React from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 function HomeScreen() {
     return (
-        <div>
+        <>
             <Header />
             <div className="body">
                 <h1>Tagline</h1>
@@ -10,7 +11,8 @@ function HomeScreen() {
                 <h1>About</h1>
                 <p>Welcome to quickblog, your go-to platform for exploring the depths of tech related blogs. Our mission is to empower you with actionable insights and expert perspectives on. With an ever-growing community and a commitment to quality, we strive to be your most trusted source in. Dive in and join the conversation.</p>
             </div>
-        </div>
+            <Footer />
+        </>
     )
 }
 

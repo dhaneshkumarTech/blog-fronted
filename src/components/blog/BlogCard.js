@@ -8,12 +8,15 @@ const BlogCard = ({ id, title, author, content, likes, comments }) => {
     const [userComments, setUserComments] = useState(comments)
     const [commentForm, setCommentForm] = useState(false)
     const [commentContent, setCommentContent] = useState({ content: "" })
+    const [liked, setLiked] = useState("Like")
 
     const authHeader = { authorization: `Bearer ${localStorage.getItem("token")}` }
 
     const likeBlog = async (blogId) => {
         const response = await axiosWraper.axiosRequest('post', `http://localhost:4000/blogs/${blogId}/like`, {}, authHeader)
         setLike(response.likes)
+        setLiked(response.like  )
+        console.log(response)
     }
 
     const showComment = () => {
@@ -47,7 +50,7 @@ const BlogCard = ({ id, title, author, content, likes, comments }) => {
             <p className="blog-author">By: {author}</p>
             <div className="blog-content">{content}</div>
             <div className="blog-actions">
-                <button className="like-button" onClick={() => likeBlog(id)}>Like ({like})</button>
+                <button className="like-button" onClick={() => likeBlog(id)}> {liked} ({like})</button>
                 <button className="comment-button" onClick={showComment} >Comment</button>
 
             </div>

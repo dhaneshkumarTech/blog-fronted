@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Header from "../Header";
+import axiosWraper from "../../utils/axiosWraper";
+import Footer from "../Footer";
 
 
 
@@ -23,27 +24,24 @@ function LoginScreen() {
         }));
     };
 
-    const Login = (e) => {
+    const Login = async (e) => {
         e.preventDefault();
+        const responseData = await axiosWraper.axiosRequest('post', 'http://localhost:4000/users/login', loginData)
+        const user = responseData.user
+        localStorage.setItem("token", responseData.token)
+        localStorage.setItem("user", JSON.stringify(user))
+        if (user.role === "admin") {
+            navigate('/admindashboard')
+        }
+        if (user.role === "creater") {
+            navigate('/users/creater')
+        }
+        if (user.role === "consumer") {
+            navigate('/users/consumer')
+        }
 
-        axios.post('http://localhost:4000/users/login', loginData)
-            .then((response) => {
-                const user = response.data.user
-                localStorage.setItem("token", response.data.token)
-                localStorage.setItem("user", JSON.stringify(user))
-                if (user.role === "admin") {
-                    navigate('/admindashboard')
-                }
-                if (user.role === "creater") {
-                    // navigate('/createrdashboard')
-                }
-                if (user.role === "consumer") { }
-                //  navigate('/consumerdashboard')
-            })
-            .catch((error) => {
-                throw error(error)
-            })
     }
+
 
     return (
         <>
@@ -61,6 +59,7 @@ function LoginScreen() {
                     <button type="Submit" >Login</button>
                 </form>
             </div>
+            <Footer />
         </>
     )
 }

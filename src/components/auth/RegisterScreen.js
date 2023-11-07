@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
 
 import Header from "../Header";
+import axiosWraper from "../../utils/axiosWraper";
+import Footer from "../Footer";
 
 
 function Register() {
@@ -23,15 +24,10 @@ function Register() {
         }));
     };
 
-    const Register = (e) => {
+    const Register = async (e) => {
         e.preventDefault();
-        axios.post('http://localhost:4000/users/register', registerData)
-            .then(() => {
-                navigate('/login')
-            })
-            .catch((error) => {
-                throw error(error)
-            })
+        await axiosWraper.axiosRequest('post', 'http://localhost:4000/users/register', registerData)
+        navigate('/login');
     }
 
     return (
@@ -63,6 +59,7 @@ function Register() {
                     <button type="Submit">Register</button>
                 </form>
             </div>
+            <Footer />
         </>
     )
 }
